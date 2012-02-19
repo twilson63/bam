@@ -17,11 +17,12 @@ renderTemplate = (body="") ->
 module.exports = (proj='.') ->
   server = http.createServer (req, resp) ->
     pathname = url.parse(req.url).pathname
-    pathname = '/index' if pathname == '/'
+    pathname = '/index.html' if pathname == '/'
 
     if pathname.match /(stylesheets|images|javascripts)/
       filed(".#{pathname}").pipe(resp)
     else
+      pathname = pathname.replace '.html', ''
       resp.writeHead 200, 'Content-Type: text/html'
       body = renderMarkdown pathname
       resp.end renderTemplate(body)

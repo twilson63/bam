@@ -1,8 +1,8 @@
 {
   "author": "Tom Wilson <tom@beautifulnode.com> (http://www.twilson63.com)",
   "name": "bam",
-  "description": "Easiest Static Site Generator on the Planet!",
-  "version": "0.0.1",
+  "description": "The Easiest Static Site Generator on the Planet!",
+  "version": "0.1.0",
   "homepage": "http://github.com/beautifulnode/bam",
   "repository": {
     "type": "git",
@@ -19,9 +19,13 @@
     "pkginfo": "*",
     "eco": "*",
     "github-flavored-markdown": "*",
-    "filed": "*"
+    "filed": "*",
+    "wrench": "*"
   },
   "devDependencies": {
     
+  },
+  "bin": {
+    "bam": "./bin/bam"
   }
 }

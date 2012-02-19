@@ -2,6 +2,7 @@
 cmdNew = require './new'
 cmdRun = require './run'
 cmdGen = require './gen'
+cmdServe = require './serve'
 
 flatiron = require 'flatiron'
 require('pkginfo')(module)
@@ -27,6 +28,7 @@ app.cmd 'version', ->
 
 app.cmd 'new', cmdNew
 app.cmd 'run', cmdRun
-app.cmd 'gen', -> cmdGen()
+app.cmd 'gen', cmdGen
+app.cmd 'serve', cmdServe
 
 app.start()

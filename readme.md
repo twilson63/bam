@@ -30,6 +30,11 @@ bam run
 ``` sh
 bam gen
 ```
+## Test Generated site
+
+``` sh
+bam serve
+```
 
 ## More Info
 
