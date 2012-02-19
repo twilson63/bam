@@ -1,0 +1,7 @@
+{
+  "name": "<%= @title %>",
+  "version": "0.0.1",
+  "dependencies": {
+    "filed": "0.0.5"
+  }
+}
