@@ -48,4 +48,7 @@ module.exports = (proj='.') ->
     for js in javascripts
       filed("./javascripts/#{js}").pipe(filed("#{gen}/javascripts/#{js}"))
 
+    for misc in ['404.html', 'robots.txt']
+      filed("./#{misc}").pipe(filed("#{gen}/#{misc}"))
+
     console.log 'Generated Static Site in the gen folder...'

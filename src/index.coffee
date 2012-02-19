@@ -13,13 +13,20 @@ app.version = exports.version
 app.use flatiron.plugins.cli,
   dir: __dirname
   usage: [
-    "Bam 0.0.1"
+    "Bam v#{app.version}"
     "Easiest Static Site Generator on the Planet"
     ""
     "bam new [foo]"
     "cd [foo]"
-    "bam run foo"
-    "bam gen foo"
+    ""
+    "# run in dev mode"
+    "bam run"
+    ""
+    "# generate site"
+    "bam gen"
+    ""
+    "# test gen site"
+    "bam serve"
   ]
   version: true
 
