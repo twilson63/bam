@@ -21,32 +21,19 @@ module.exports = (proj='.') ->
   # Remove gen directory if exists
   checkexists gen, (exists) -> 
     wrench.rmdirSyncRecursive(gen) if exists 
-    # # Create gen directory
+    # Create gen directory
     fs.mkdirSync(gen)
-    # # Read Pages Directory
+    # Read Pages Directory
     pages = fs.readdirSync('./pages')
-    # # for each page render to gen directory as html files
+    # for each page render to gen directory as html files
     for page in pages
       body = renderMarkdown '/' + page.replace('.md','')
       page = page.replace '.md', '.html'
       fs.writeFileSync "#{gen}/#{page}", renderTemplate(body), 'utf8'
-    #   
-    # # build asset folders
+    # build asset folders
     for dir in ['images', 'javascripts', 'stylesheets']
       fs.mkdirSync("#{gen}/#{dir}")
-
-    # # copy assets over
-    images = fs.readdirSync('./images')
-    for image in images
-      filed("./images/#{image}").pipe(filed("#{gen}/images/#{image}"))
-
-    stylesheets = fs.readdirSync('./stylesheets')
-    for css in stylesheets
-      filed("./stylesheets/#{css}").pipe(filed("#{gen}/stylesheets/#{css}"))
-
-    javascripts = fs.readdirSync('./javascripts')
-    for js in javascripts
-      filed("./javascripts/#{js}").pipe(filed("#{gen}/javascripts/#{js}"))
+      wrench.copyDirSyncRecursive "./#{dir}", "#{gen}/#{dir}"
 
     for misc in ['404.html', 'robots.txt']
       filed("./#{misc}").pipe(filed("#{gen}/#{misc}"))
