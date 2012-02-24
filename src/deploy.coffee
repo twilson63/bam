@@ -14,10 +14,11 @@ module.exports = (location='s3') ->
     files = wrench.readdirSyncRecursive('./gen')
     # copy files from gen to bucket
     for f in files
-      destFile = f.replace('gen/', '')
+      destFile = f.replace('gen', '')
       srcFile = './' + f
-      console.log 'Uploading... ' + destFile
-      client.putFile destFile, srcFile, (err, resp) =>
-        console.log err if err?
+      console.log 'Uploading... ' + destFile 
+      
+      client.putFile srcFile, destFile, (err, resp) =>
+        #console.log err if err?
         if resp?
           resp.on 'data', (data) -> console.log data.toString()
