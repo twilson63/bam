@@ -21,7 +21,7 @@ buildFolders = (proj, cb) ->
   cb()
 
 buildFiles = (proj, cb) ->
-  for template in ['server.js', 'layout.html', 'package.json', 'robots.txt', '404.html']
+  for template in ['s3.json', 'server.js', 'layout.html', 'package.json', 'robots.txt', '404.html']
     renderTemplate(template, proj, title: proj)
   cb()
 
