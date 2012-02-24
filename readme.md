@@ -1,5 +1,7 @@
 # BAM
 
+![bam](http://bam.jpg.to)
+
 The easiest static site generator on the planet.
 
 # Requirements
