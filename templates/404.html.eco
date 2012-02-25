@@ -8,7 +8,7 @@
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Your Page Title Here :)</title>
+  <title>BAM! Not Found!</title>
   <meta name="description" content="">
   <meta name="author" content="">
   <!--[if lt IE 9]>
@@ -21,16 +21,17 @@
 
   <!-- CSS
   ================================================== -->
-  <link rel="stylesheet" href="stylesheets/base.css">
-  <link rel="stylesheet" href="stylesheets/skeleton.css">
-  <link rel="stylesheet" href="stylesheets/layout.css">
+  <link rel="stylesheet" href="/stylesheets/base.css">
+  <link rel="stylesheet" href="/stylesheets/skeleton.css">
+  <link rel="stylesheet" href="/stylesheets/layout.css">
+  <link rel="stylesheet" href="/stylesheets/bam.css">
 
   <!-- Favicons
   ================================================== -->
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  <link rel="shortcut icon" href="/images/bam.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
 </head>
 <body>
@@ -38,7 +39,8 @@
   <!-- Primary Page Layout
   ================================================== -->
   <div class="container">
-    <h1 style="margin-top: 100px; text-align:center">Sorry. Couldn't Find That Page!</h1>
+    <center><img class="pop" src="/images/bam.gif"></img></center>
+    <h1 style="margin-top: 100px; text-align:center">Couldn't Find That Page!</h1>
   </div>
 
 <!-- End Document

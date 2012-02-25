@@ -1,6 +1,11 @@
 eco = require 'eco'
 fs = require 'fs'
+wrench = require 'wrench'
 log = console.log
+
+checkexists = (name, cb) ->
+  fs.stat name, (err, stat) ->
+    cb if err? then false else true
 
 renderTemplate = (name, project, data={}) ->
   template = fs.readFileSync __dirname + "/../templates/#{name}.eco", "utf8"
@@ -11,41 +16,37 @@ copy = (src, dest) ->
   fs.createReadStream(src).pipe(destFile)
 
 buildFolders = (proj, cb) ->
-  fs.mkdirSync directory, 0755 for directory in [
-    "./#{proj}"
-    "./#{proj}/pages"
-    "./#{proj}/stylesheets"
-    "./#{proj}/javascripts"
-    "./#{proj}/images"
-  ]
-  cb()
+  log 'Building Folders...'
+  # Remove gen directory if exists
+  checkexists "./#{proj}", (exists) -> 
+    wrench.rmdirSyncRecursive("./#{proj}") if exists 
+    fs.mkdirSync directory, 0755 for directory in [
+      "./#{proj}"
+      "./#{proj}/pages"
+    ]
+    cb()
 
 buildFiles = (proj, cb) ->
-  for template in ['s3.json', 'server.js', 'layout.html', 'package.json', 'robots.txt', '404.html']
+  log 'Creating Files...'
+  for template in ['s3.json', 'server.js', 'package.json', 'robots.txt', '404.html']
     renderTemplate(template, proj, title: proj)
   cb()
 
-copyAssets = (proj, cb) ->
-  for image in ['apple-touch-icon-114x114.png','apple-touch-icon-72x72.png', 'apple-touch-icon.png', 'favicon.ico']
-    src = [__dirname, '..','templates','images', image].join('/')
-    dest = [proj,'images', image].join('/')
-    copy(src, dest)
-
-  for js in ['tabs.js']
-    src = [__dirname, '..','templates','javascripts', js].join('/')
-    dest = [proj,'javascripts', js].join('/')
-    copy(src, dest)
-
-  for css in ['base.css', 'layout.css', 'skeleton.css']
-    src = [__dirname, '..','templates','stylesheets', css].join('/')
-    dest = [proj,'stylesheets', css].join('/')
-    copy(src, dest)
-
+buildLayout = (proj, tmpl="skeleton", cb) ->
+  log 'Creating Layout...'
+  template = fs.readFileSync __dirname + "/../templates/#{tmpl}/layout.html.eco", "utf8"
+  fs.writeFileSync "./#{proj}/layout.html", eco.render(template, title: proj)
+  cb()
+  
+copyAssets = (proj, tmpl="skeleton", cb) ->
+  log 'Creating Assets...'
+  for dir in ['images', 'javascripts', 'stylesheets']
+    fs.mkdirSync("./#{proj}/#{dir}")
+    wrench.copyDirSyncRecursive "#{__dirname}/../templates/#{tmpl}/#{dir}", "./#{proj}/#{dir}"
   cb()
 
-module.exports = (proj=null) ->
+module.exports = (proj=null,tmpl,cb) ->
+  if typeof tmpl is 'function' then cb = tmpl
   return console.log('Project Name Required!') unless proj?
-  buildFolders proj, -> log 'Building Folders...'
-  buildFiles proj, -> log 'Creating Files...'
-  copyAssets proj, -> log 'Creating Assets...'
-  log 'Done.'
+  buildFolders proj, -> buildFiles proj, -> 
+    buildLayout proj, tmpl, -> copyAssets proj, tmpl, -> cb(null, 'Done')
