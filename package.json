@@ -2,7 +2,7 @@
   "author": "Tom Wilson <tom@beautifulnode.com> (http://www.twilson63.com)",
   "name": "bam",
   "description": "The Easiest Static Site Generator on the Planet!",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "http://github.com/beautifulnode/bam",
   "repository": {
     "type": "git",
@@ -15,7 +15,6 @@
     "node": "0.6 || 0.7"
   },
   "dependencies": {
-    "flatiron": "0.1.12-1",
     "pkginfo": "0.2.3",
     "eco": "1.1.0-rc-3",
     "github-flavored-markdown": "1.0.1",
