@@ -19,7 +19,7 @@ module.exports = (proj='.') ->
     pathname = url.parse(req.url).pathname
     pathname = '/index.html' if pathname == '/'
     try
-      if pathname.match /(stylesheets|images|javascripts)/
+      if pathname.match /(stylesheets|images|javascripts|css|img|js)/
         filed(".#{pathname}").pipe(resp)
       else
         pathname = pathname.replace '.html', ''
