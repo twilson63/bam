@@ -5,10 +5,16 @@ ghm = require 'github-flavored-markdown'
 fs = require 'fs'
 filed = require 'filed'
 log = console.log
+wrench = require 'wrench'
+
+pages = wrench.readdirSyncRecursive('pages')
 
 renderMarkdown = (name) ->
   md = fs.readFileSync("./pages#{name}.md").toString()
   ghm.parse(md)
+
+renderHtml = (name) ->
+  fs.readFileSync("./pages#{name}.html").toString()
 
 renderTemplate = (body="") ->
   template = fs.readFileSync "./layout.html", "utf8"
@@ -23,7 +29,12 @@ module.exports = (proj='.') ->
         filed(".#{pathname}").pipe(resp)
       else
         pathname = pathname.replace '.html', ''
-        body = renderMarkdown pathname
+        ext = (page for page in pages when page.split('.')[0] is pathname.split('/')[1].split('.')[0])?[0].split('.')[1]
+        if ext is 'html'
+          body = renderHtml pathname
+        else
+          body = renderMarkdown pathname
+        
         resp.writeHead 200, 'Content-Type: text/html'
         resp.end renderTemplate(body)
     catch err

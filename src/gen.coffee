@@ -8,6 +8,9 @@ renderMarkdown = (name) ->
   md = fs.readFileSync("./pages#{name}.md").toString()
   ghm.parse(md)
 
+renderHtml = (name) ->
+  fs.readFileSync("./pages#{name}.html").toString()
+
 renderTemplate = (body="") ->
   template = fs.readFileSync "./layout.html", "utf8"
   eco.render(template, body: body)
@@ -27,11 +30,14 @@ module.exports = (proj='.') ->
     pages = fs.readdirSync('./pages')
     # for each page render to gen directory as html files
     for page in pages
-      body = renderMarkdown '/' + page.replace('.md','')
+      if page.split('.')[1] is 'html'
+        body = renderHtml '/' + page.replace('.html','')
+      else
+        body = renderMarkdown '/' + page.replace('.md','')
       page = page.replace '.md', '.html'
       fs.writeFileSync "#{gen}/#{page}", renderTemplate(body), 'utf8'
     # build asset folders
-    for dir in ['images', 'javascripts', 'stylesheets']
+    for dir in ['images', 'javascripts', 'stylesheets', 'ico', 'img', 'js', 'css']
       fs.mkdirSync("#{gen}/#{dir}")
       wrench.copyDirSyncRecursive "./#{dir}", "#{gen}/#{dir}"
 
