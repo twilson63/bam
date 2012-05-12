@@ -17,7 +17,7 @@ app.use flatiron.plugins.cli,
     "Bam v#{app.version}"
     "Easiest Static Site Generator on the Planet"
     ""
-    "bam new [foo] [template]"
+    "bam new [foo]"
     "cd [foo]"
     ""
     "# run in dev mode"
