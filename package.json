@@ -20,7 +20,8 @@
     "github-flavored-markdown": "1.0.1",
     "filed": "0.0.5",
     "wrench": "1.3.6",
-    "fortknox": "0.1.0"
+    "fortknox": "0.1.0",
+    "zeke": "*"
   },
   "devDependencies": {
     

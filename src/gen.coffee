@@ -3,6 +3,8 @@ eco = require 'eco'
 ghm = require 'github-flavored-markdown'
 filed = require 'filed'
 wrench = require 'wrench'
+cc = require 'zeke'
+cc.init() unless cc.initialized
 
 renderMarkdown = (name) ->
   md = fs.readFileSync("./pages#{name}.md").toString()
@@ -10,6 +12,10 @@ renderMarkdown = (name) ->
 
 renderHtml = (name) ->
   fs.readFileSync("./pages#{name}.html").toString()
+
+renderCoffee = (name) ->
+  coffee = fs.readFileSync("./pages#{name}.coffee").toString()
+  cc.render coffee
 
 renderTemplate = (body="") ->
   template = fs.readFileSync "./layout.html", "utf8"
@@ -32,9 +38,11 @@ module.exports = (proj='.') ->
     for page in pages
       if page.split('.')[1] is 'html'
         body = renderHtml '/' + page.replace('.html','')
+      else if page.split('.')[1] is 'coffee'
+        body = renderCoffee '/' + page.replace('.coffee','')
       else
         body = renderMarkdown '/' + page.replace('.md','')
-      page = page.replace '.md', '.html'
+        page = page.replace '.md', '.html'
       fs.writeFileSync "#{gen}/#{page}", renderTemplate(body), 'utf8'
     # build asset folders
     for dir in ['images', 'javascripts', 'stylesheets', 'ico', 'img', 'js', 'css']

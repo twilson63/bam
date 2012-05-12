@@ -6,6 +6,8 @@ fs = require 'fs'
 filed = require 'filed'
 log = console.log
 wrench = require 'wrench'
+cc = require 'zeke'
+cc.init() unless cc.initialized
 
 pages = wrench.readdirSyncRecursive('pages')
 
@@ -15,6 +17,10 @@ renderMarkdown = (name) ->
 
 renderHtml = (name) ->
   fs.readFileSync("./pages#{name}.html").toString()
+
+renderCoffee = (name) ->
+  coffee = fs.readFileSync("./pages#{name}.coffee").toString()
+  cc.render coffee
 
 renderTemplate = (body="") ->
   template = fs.readFileSync "./layout.html", "utf8"
@@ -32,6 +38,8 @@ module.exports = (proj='.') ->
         ext = (page for page in pages when page.split('.')[0] is pathname.split('/')[1].split('.')[0])?[0].split('.')[1]
         if ext is 'html'
           body = renderHtml pathname
+        else if ext is 'coffee'
+          body = renderCoffee pathname
         else
           body = renderMarkdown pathname
         
