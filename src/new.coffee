@@ -48,6 +48,6 @@ copyAssets = (proj, tmpl="skeleton", cb) ->
 module.exports = (proj=null,tmpl,cb) ->
   if typeof tmpl is 'function' then cb = tmpl
   return console.log('Project Name Required!') unless proj?
-  buildFolders proj, -> buildFiles proj, -> 
-    # copyAssets proj, tmpl, -> 
-    buildLayout proj, tmpl, -> cb(null, 'Done')
+  buildFolders proj, -> buildFiles proj, -> buildLayout proj, tmpl, -> cb(null, 'Done')
+  # copyAssets proj, tmpl, -> 
+    

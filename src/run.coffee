@@ -9,8 +9,6 @@ wrench = require 'wrench'
 cc = require 'zeke'
 cc.init() unless cc.initialized
 
-pages = wrench.readdirSyncRecursive('pages')
-
 renderMarkdown = (name) ->
   md = fs.readFileSync("./pages#{name}.md").toString()
   ghm.parse(md)
@@ -28,6 +26,7 @@ renderTemplate = (body="") ->
 
 module.exports = (proj='.') ->
   server = http.createServer (req, resp) ->
+    pages = wrench.readdirSyncRecursive('pages')
     pathname = url.parse(req.url).pathname
     pathname = '/index.html' if pathname == '/'
     try
@@ -36,14 +35,12 @@ module.exports = (proj='.') ->
       else
         pathname = pathname.replace '.html', ''
         ext = (page for page in pages when page.split('.')[0] is pathname.split('/')[1].split('.')[0])?[0].split('.')[1]
-        console.log ext
         if ext is 'html'
           body = renderHtml pathname
         else if ext is 'coffee'
           body = renderCoffee pathname
         else
           body = renderMarkdown pathname
-        
         resp.writeHead 200, 'Content-Type: text/html'
         resp.end renderTemplate(body)
     catch err
