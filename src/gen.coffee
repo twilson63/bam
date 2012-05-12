@@ -40,6 +40,7 @@ module.exports = (proj='.') ->
         body = renderHtml '/' + page.replace('.html','')
       else if page.split('.')[1] is 'coffee'
         body = renderCoffee '/' + page.replace('.coffee','')
+        page = page.replace '.coffee', '.html'
       else
         body = renderMarkdown '/' + page.replace('.md','')
         page = page.replace '.md', '.html'

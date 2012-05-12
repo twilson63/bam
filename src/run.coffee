@@ -36,6 +36,7 @@ module.exports = (proj='.') ->
       else
         pathname = pathname.replace '.html', ''
         ext = (page for page in pages when page.split('.')[0] is pathname.split('/')[1].split('.')[0])?[0].split('.')[1]
+        console.log ext
         if ext is 'html'
           body = renderHtml pathname
         else if ext is 'coffee'
