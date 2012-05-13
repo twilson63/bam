@@ -3,7 +3,7 @@ eco = require 'eco'
 ghm = require 'github-flavored-markdown'
 filed = require 'filed'
 wrench = require 'wrench'
-cc = require './zeke'
+cc = require('./zeke')()
 
 renderMarkdown = (name) ->
   md = fs.readFileSync("./pages#{name}.md").toString()
@@ -46,8 +46,11 @@ module.exports = (proj='.') ->
       fs.writeFileSync "#{gen}/#{page}", renderTemplate(body), 'utf8'
     # build asset folders
     for dir in ['images', 'javascripts', 'stylesheets', 'ico', 'img', 'js', 'css']
-      fs.mkdirSync("#{gen}/#{dir}")
-      wrench.copyDirSyncRecursive "./#{dir}", "#{gen}/#{dir}"
+      try
+        fs.mkdirSync("#{gen}/#{dir}")
+        wrench.copyDirSyncRecursive "./#{dir}", "#{gen}/#{dir}"
+      catch err
+        console.log err.message
 
     for misc in ['404.html', 'robots.txt']
       filed("./#{misc}").pipe(filed("#{gen}/#{misc}"))

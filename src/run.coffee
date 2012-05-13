@@ -6,7 +6,7 @@ fs = require 'fs'
 filed = require 'filed'
 log = console.log
 wrench = require 'wrench'
-cc = require './zeke'
+cc = require('./zeke')()
 renderMarkdown = (name) ->
   md = fs.readFileSync("./pages#{name}.md").toString()
   ghm.parse(md)
@@ -28,7 +28,7 @@ module.exports = (proj='.') ->
     pathname = url.parse(req.url).pathname
     pathname = '/index.html' if pathname == '/'
     try
-      if pathname.match /(stylesheets|images|javascripts|css|img|js)/
+      if pathname.match /^\/(stylesheets|images|javascripts|css|img|js)/
         filed(".#{pathname}").pipe(resp)
       else
         pathname = pathname.replace '.html', ''
