@@ -3,8 +3,7 @@ eco = require 'eco'
 ghm = require 'github-flavored-markdown'
 filed = require 'filed'
 wrench = require 'wrench'
-cc = require 'zeke'
-cc.init() unless cc.initialized
+cc = require './zeke'
 
 renderMarkdown = (name) ->
   md = fs.readFileSync("./pages#{name}.md").toString()

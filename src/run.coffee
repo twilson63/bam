@@ -6,9 +6,7 @@ fs = require 'fs'
 filed = require 'filed'
 log = console.log
 wrench = require 'wrench'
-cc = require 'zeke'
-cc.init() unless cc.initialized
-
+cc = require './zeke'
 renderMarkdown = (name) ->
   md = fs.readFileSync("./pages#{name}.md").toString()
   ghm.parse(md)
