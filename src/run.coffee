@@ -32,7 +32,7 @@ module.exports = (proj='.') ->
         filed(".#{pathname}").pipe(resp)
       else
         pathname = pathname.replace '.html', ''
-        ext = (page for page in pages when page.split('.')[0] is pathname.split('/')[1].split('.')[0])?[0].split('.')[1]
+        ext = (page for page in pages when page?.split('.')[0] is pathname?.split('/')[1].split('.')[0])?[0].split('.')[1]
         if ext is 'html'
           body = renderHtml pathname
         else if ext is 'coffee'
