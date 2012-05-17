@@ -42,7 +42,7 @@ module.exports = (proj='.') ->
         resp.writeHead 200, 'Content-Type: text/html'
         resp.end renderTemplate(body)
     catch err
-      console.log err
+      console.log "Unable to locate file #{pathname}"
       filed('./404.html').pipe(resp)
 
   server.listen 3000, ->

@@ -46,7 +46,7 @@ copyAssets = (proj, tmpl="skeleton", cb) ->
         fs.mkdirSync("./#{proj}/#{dir}")
         wrench.copyDirSyncRecursive "#{__dirname}/../templates/#{tmpl}/#{dir}", "./#{proj}/#{dir}"
       catch err
-        console.log err.message
+        console.log err.message if process.env.NODE_ENV = 'debug'
     
   copy(dir) for dir in ['images', 'javascripts', 'stylesheets', 'ico', 'img', 'js', 'css','pages']
   cb()
