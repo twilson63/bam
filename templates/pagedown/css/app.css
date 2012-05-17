@@ -1,0 +1,40 @@
+.hero-unit {
+  height: 600px;
+}
+
+.hero-unit {
+  color: rgba(0,0,0,.7);
+}
+
+.hero-unit ul {
+  font-size: 2em;
+}
+
+.hero-unit ul li {
+  line-height: 40px;
+}
+
+@media (max-width: 768px) {
+
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
+
+  .hero-unit {
+    color: rgba(0,0,0,.7);
+    font-size: .8em;
+    height: 400px;
+  }
+  
+  .hero-unit p, section ul li {
+    color: rgba(0,0,0,.7);
+    font-size: .8em;
+    line-height: 20px;
+  }
+  
+  .hero-unit {
+    padding: 10px;
+  }
+  
+}
