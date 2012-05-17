@@ -8,14 +8,9 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
-    <link href="/stylesheets/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -60,19 +55,9 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/javascripts/jquery.js"></script>
-    <script src="/javascripts/bootstrap-transition.js"></script>
-    <script src="/javascripts/bootstrap-alert.js"></script>
-    <script src="/javascripts/bootstrap-modal.js"></script>
-    <script src="/javascripts/bootstrap-dropdown.js"></script>
-    <script src="/javascripts/bootstrap-scrollspy.js"></script>
-    <script src="/javascripts/bootstrap-tab.js"></script>
-    <script src="/javascripts/bootstrap-tooltip.js"></script>
-    <script src="/javascripts/bootstrap-popover.js"></script>
-    <script src="/javascripts/bootstrap-button.js"></script>
-    <script src="/javascripts/bootstrap-collapse.js"></script>
-    <script src="/javascripts/bootstrap-carousel.js"></script>
-    <script src="/javascripts/bootstrap-typeahead.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/app.js"></script>
 
   </body>
 </html>

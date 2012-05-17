@@ -1,0 +1,11 @@
+body {
+  padding-top: 90;
+}
+
+@media (max-width: 768px) {
+
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
+}
