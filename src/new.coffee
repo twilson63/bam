@@ -22,9 +22,9 @@ buildFolders = (proj, cb) ->
     wrench.rmdirSyncRecursive("./#{proj}") if exists 
     fs.mkdirSync directory, 0755 for directory in [
       "./#{proj}"
-      "./#{proj}/pages"
     ]
     cb()
+    #"./#{proj}/pages"
 
 buildFiles = (proj, cb) ->
   log 'Creating Files...'
@@ -40,14 +40,20 @@ buildLayout = (proj, tmpl="skeleton", cb) ->
   
 copyAssets = (proj, tmpl="skeleton", cb) ->
   log 'Creating Assets...'
-  for dir in ['images', 'javascripts', 'stylesheets']
-    fs.mkdirSync("./#{proj}/#{dir}")
-    wrench.copyDirSyncRecursive "#{__dirname}/../templates/#{tmpl}/#{dir}", "./#{proj}/#{dir}"
+  copy = (dir) ->
+    checkexists "#{__dirname}/../templates/#{tmpl}/#{dir}", (exists) ->
+      try
+        fs.mkdirSync("./#{proj}/#{dir}")
+        wrench.copyDirSyncRecursive "#{__dirname}/../templates/#{tmpl}/#{dir}", "./#{proj}/#{dir}"
+      catch err
+        console.log err.message
+    
+  copy(dir) for dir in ['images', 'javascripts', 'stylesheets', 'ico', 'img', 'js', 'css','pages']
   cb()
 
 module.exports = (proj=null,tmpl,cb) ->
-  if typeof tmpl is 'function' then cb = tmpl
+  if typeof tmpl is 'function' then cb = tmpl; tmpl = null
   return console.log('Project Name Required!') unless proj?
-  buildFolders proj, -> buildFiles proj, -> buildLayout proj, tmpl, -> cb(null, 'Done')
+  buildFolders proj, -> buildFiles proj, -> copyAssets proj, tmpl, -> buildLayout proj, tmpl, -> cb(null, 'Done')
   # copyAssets proj, tmpl, -> 
     
