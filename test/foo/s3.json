@@ -1,5 +1,0 @@
-{
-  "key": "YOUR S3 KEY",
-  "secret": "YOUR S3 SECRET",
-  "bucket": "www.foo.com"
-}
