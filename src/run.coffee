@@ -23,7 +23,7 @@ renderTemplate = (body="") ->
   template = fs.readFileSync "./layout.html", "utf8"
   eco.render(template, body: body)
 
-module.exports = (proj='.') ->
+module.exports = (port, proj='.') ->
   server = http.createServer (req, resp) ->
     pages = wrench.readdirSyncRecursive('pages')
     pathname = url.parse(req.url).pathname
@@ -47,7 +47,7 @@ module.exports = (proj='.') ->
       filed('./404.html').pipe(resp)
   
   try
-    #x = fs.lstatSync './layout.html'
-    server.listen(3000)
+    server.listen port or 3000, ->
+      console.log 'Server running on port ' + port or '3000'
   catch err
     console.log 'Not able to detect BAM application'
