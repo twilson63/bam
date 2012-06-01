@@ -1,0 +1,11 @@
+{
+  "name": "cc-lesson1",
+  "version": "0.0.1",
+  "dependencies": {
+    "filed": "0.0.5"
+  },
+  "scripts": {
+    "start": "server.js"
+  },
+  "engines": "0.6 || 0.7 || 0.8"
+}

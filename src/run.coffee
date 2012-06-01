@@ -7,6 +7,7 @@ filed = require 'filed'
 log = console.log
 wrench = require 'wrench'
 cc = require('./zeke')()
+
 renderMarkdown = (name) ->
   md = fs.readFileSync("./pages#{name}.md").toString()
   ghm.parse(md)
@@ -44,7 +45,9 @@ module.exports = (proj='.') ->
     catch err
       console.log "Unable to locate file #{pathname}"
       filed('./404.html').pipe(resp)
-
-  server.listen 3000, ->
-    log 'Listening on 3000...'
-    log 'CTRL-C to exit..'
+  
+  try
+    #x = fs.lstatSync './layout.html'
+    server.listen(3000)
+  catch err
+    console.log 'Not able to detect BAM application'

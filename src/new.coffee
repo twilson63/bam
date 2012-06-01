@@ -46,7 +46,7 @@ copyAssets = (proj, tmpl="skeleton", cb) ->
         fs.mkdirSync("./#{proj}/#{dir}")
         wrench.copyDirSyncRecursive "#{__dirname}/../templates/#{tmpl}/#{dir}", "./#{proj}/#{dir}"
       catch err
-        console.log err.message if process.env.NODE_ENV = 'debug'
+        console.log err.message if process.env.NODE_ENV == 'debug'
     
   copy(dir) for dir in ['images', 'javascripts', 'stylesheets', 'ico', 'img', 'js', 'css','pages']
   cb()
@@ -55,5 +55,4 @@ module.exports = (proj=null,tmpl,cb) ->
   if typeof tmpl is 'function' then cb = tmpl; tmpl = null
   return console.log('Project Name Required!') unless proj?
   buildFolders proj, -> buildFiles proj, -> copyAssets proj, tmpl, -> buildLayout proj, tmpl, -> cb(null, 'Done')
-  # copyAssets proj, tmpl, -> 
     
