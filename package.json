@@ -26,10 +26,9 @@
     "zeke-markdown": "*",
     "zeke-bootstrap": "*"
   },
-  "devDependencies": {
-    
-  },
+  "devDependencies": {},
   "bin": {
     "bam": "./bin/bam"
-  }
+  },
+  "optionalDependencies": {}
 }
