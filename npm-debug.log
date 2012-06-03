@@ -1,0 +1,312 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+info using npm@1.1.21
+info using node@v0.6.17
+verbose config file /Users/twilson63/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+verbose publish [ '.' ]
+verbose caching /Users/twilson63/code/bam/package.json
+verbose loadDefaults bam@0.5.5
+info prepublish bam@0.5.5
+verbose cache add [ '.', null ]
+silly cache add: name, spec, args [ undefined, '.', [ '.', null ] ]
+verbose parsed url { pathname: '.', path: '.', href: '.' }
+verbose caching package.json
+verbose loadDefaults bam@0.5.5
+verbose tar.pack [ '/var/folders/6m/8kkwqk753ws26x87vbh8z7l00000gn/T/npm-1338723725732/1338723725732-0.9219000460579991/tmp.tgz',
+verbose tar.pack   '.' ]
+verbose tarball /var/folders/6m/8kkwqk753ws26x87vbh8z7l00000gn/T/npm-1338723725732/1338723725732-0.9219000460579991/tmp.tgz
+verbose folder .
+verbose unpack /var/folders/6m/8kkwqk753ws26x87vbh8z7l00000gn/T/npm-1338723725732/1338723725732-0.9219000460579991/tmp.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry bin/bam
+silly extracting entry Cakefile
+silly extracting entry lib/deploy.js
+silly extracting entry lib/gen.js
+silly extracting entry lib/index.js
+silly extracting entry lib/new.js
+silly extracting entry lib/run.js
+silly extracting entry lib/serve.js
+silly extracting entry lib/zeke.js
+silly extracting entry readme.md
+silly extracting entry templates/404.html.eco
+silly extracting entry templates/bootstrap/css/app.css
+silly extracting entry templates/bootstrap/css/bootstrap-responsive.min.css
+silly extracting entry templates/bootstrap/css/bootstrap.min.css
+silly extracting entry templates/bootstrap/images/example-diagram-03.png
+silly extracting entry templates/bootstrap/images/bam.gif
+silly extracting entry templates/bootstrap/images/bird.png
+silly extracting entry templates/bootstrap/images/bootstrap-apple-114x114.png
+silly extracting entry templates/bootstrap/images/bootstrap-apple-57x57.png
+silly extracting entry templates/bootstrap/images/bootstrap-apple-72x72.png
+silly extracting entry templates/bootstrap/images/bootstrap-mdo-sfmoma-01.jpg
+silly extracting entry templates/bootstrap/images/bootstrap-mdo-sfmoma-02.jpg
+silly extracting entry templates/bootstrap/images/bootstrap-mdo-sfmoma-03.jpg
+silly extracting entry templates/bootstrap/images/browsers.png
+silly extracting entry templates/bootstrap/images/example-diagram-01.png
+silly extracting entry templates/bootstrap/images/example-diagram-02.png
+silly extracting entry templates/bootstrap/images/bam.ico
+silly extracting entry templates/bootstrap/images/favicon.ico
+silly extracting entry templates/bootstrap/images/github-16px.png
+silly extracting entry templates/bootstrap/images/glyphicons-halflings-white.png
+silly extracting entry templates/bootstrap/images/glyphicons-halflings.png
+silly extracting entry templates/bootstrap/images/grid-18px-masked.png
+silly extracting entry templates/bootstrap/images/icon-css3.png
+silly extracting entry templates/bootstrap/images/icon-github.png
+silly extracting entry templates/bootstrap/images/icon-html5.png
+silly extracting entry templates/bootstrap/images/icon-twitter.png
+silly extracting entry templates/bootstrap/images/less-logo-large.png
+silly extracting entry templates/bootstrap/images/less-small.png
+silly extracting entry templates/bootstrap/images/responsive-illustrations.png
+silly extracting entry templates/bootstrap/img/glyphicons-halflings-white.png
+silly extracting entry templates/bootstrap/img/glyphicons-halflings.png
+silly extracting entry templates/bootstrap/js/app.js
+silly extracting entry templates/bootstrap/js/bootstrap.min.js
+silly extracting entry templates/bootstrap/layout.html.eco
+silly extracting entry templates/bootstrap/pages/index.html
+silly extracting entry templates/package.json.eco
+silly extracting entry templates/pagedown/package.json
+silly extracting entry templates/pagedown/server.js
+silly extracting entry templates/pagedown/css/app.css
+silly extracting entry templates/pagedown/css/bootstrap-responsive.min.css
+silly extracting entry templates/pagedown/css/bootstrap.min.css
+silly extracting entry templates/pagedown/ico/apple-touch-icon-114-precomposed.png
+silly extracting entry templates/pagedown/ico/apple-touch-icon-144-precomposed.png
+silly extracting entry templates/pagedown/ico/apple-touch-icon-57-precomposed.png
+silly extracting entry templates/pagedown/ico/apple-touch-icon-72-precomposed.png
+silly extracting entry templates/pagedown/ico/favicon.ico
+silly extracting entry templates/pagedown/images/apple-touch-icon-114x114.png
+silly extracting entry templates/pagedown/images/apple-touch-icon-72x72.png
+silly extracting entry templates/pagedown/images/apple-touch-icon.png
+silly extracting entry templates/pagedown/images/bam.gif
+silly extracting entry templates/pagedown/images/bam.ico
+silly extracting entry templates/pagedown/images/favicon.ico
+silly extracting entry templates/pagedown/img/glyphicons-halflings-white.png
+silly extracting entry templates/pagedown/img/glyphicons-halflings.png
+silly extracting entry templates/pagedown/img/ror-is-here.jpg
+silly extracting entry templates/pagedown/js/app.js
+silly extracting entry templates/pagedown/js/bootstrap.min.js
+silly extracting entry templates/pagedown/js/jquery.fittext.js
+silly extracting entry templates/pagedown/js/jquery.js
+silly extracting entry templates/pagedown/js/jquery.scrollTo.min.js
+silly extracting entry templates/pagedown/layout.html.eco
+silly extracting entry templates/pagedown/pages/index.coffee
+silly extracting entry templates/pagedown/robots.txt
+silly extracting entry templates/robots.txt.eco
+silly extracting entry templates/s3.json.eco
+silly extracting entry templates/server.js.eco
+silly extracting entry templates/skeleton/images/apple-touch-icon-114x114.png
+silly extracting entry templates/skeleton/images/apple-touch-icon-72x72.png
+silly extracting entry templates/skeleton/images/apple-touch-icon.png
+silly extracting entry templates/skeleton/images/bam.gif
+silly extracting entry templates/skeleton/images/bam.ico
+silly extracting entry templates/skeleton/images/favicon.ico
+silly extracting entry templates/skeleton/javascripts/tabs.js
+silly extracting entry templates/skeleton/layout.html.eco
+silly extracting entry templates/skeleton/pages/index.md
+silly extracting entry templates/skeleton/stylesheets/bam.css
+silly extracting entry templates/skeleton/stylesheets/base.css
+silly extracting entry templates/skeleton/stylesheets/github.css
+silly extracting entry templates/skeleton/stylesheets/layout.css
+silly extracting entry templates/skeleton/stylesheets/skeleton.css
+verbose caching /var/folders/6m/8kkwqk753ws26x87vbh8z7l00000gn/T/npm-1338723725732/1338723725732-0.9219000460579991/package/package.json
+verbose loadDefaults bam@0.5.5
+verbose from cache /var/folders/6m/8kkwqk753ws26x87vbh8z7l00000gn/T/npm-1338723725732/1338723725732-0.9219000460579991/package/package.json
+verbose tar.pack [ '/Users/twilson63/.npm/bam/0.5.5/package.tgz',
+verbose tar.pack   '/var/folders/6m/8kkwqk753ws26x87vbh8z7l00000gn/T/npm-1338723725732/1338723725732-0.9219000460579991/package' ]
+verbose tarball /Users/twilson63/.npm/bam/0.5.5/package.tgz
+verbose folder /var/folders/6m/8kkwqk753ws26x87vbh8z7l00000gn/T/npm-1338723725732/1338723725732-0.9219000460579991/package
+verbose unpack /Users/twilson63/.npm/bam/0.5.5/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry bin/bam
+silly extracting entry Cakefile
+silly extracting entry lib/deploy.js
+silly extracting entry lib/gen.js
+silly extracting entry lib/index.js
+silly extracting entry lib/new.js
+silly extracting entry lib/run.js
+silly extracting entry lib/serve.js
+silly extracting entry lib/zeke.js
+silly extracting entry readme.md
+silly extracting entry templates/404.html.eco
+silly extracting entry templates/bootstrap/css/app.css
+silly extracting entry templates/bootstrap/css/bootstrap-responsive.min.css
+silly extracting entry templates/bootstrap/css/bootstrap.min.css
+silly extracting entry templates/bootstrap/images/example-diagram-03.png
+silly extracting entry templates/bootstrap/images/bam.gif
+silly extracting entry templates/bootstrap/images/bird.png
+silly extracting entry templates/bootstrap/images/bootstrap-apple-114x114.png
+silly extracting entry templates/bootstrap/images/bootstrap-apple-57x57.png
+silly extracting entry templates/bootstrap/images/bootstrap-apple-72x72.png
+silly extracting entry templates/bootstrap/images/bootstrap-mdo-sfmoma-01.jpg
+silly extracting entry templates/bootstrap/images/bootstrap-mdo-sfmoma-02.jpg
+silly extracting entry templates/bootstrap/images/bootstrap-mdo-sfmoma-03.jpg
+silly extracting entry templates/bootstrap/images/browsers.png
+silly extracting entry templates/bootstrap/images/example-diagram-01.png
+silly extracting entry templates/bootstrap/images/example-diagram-02.png
+silly extracting entry templates/bootstrap/images/bam.ico
+silly extracting entry templates/bootstrap/images/favicon.ico
+silly extracting entry templates/bootstrap/images/github-16px.png
+silly extracting entry templates/bootstrap/images/glyphicons-halflings-white.png
+silly extracting entry templates/bootstrap/images/glyphicons-halflings.png
+silly extracting entry templates/bootstrap/images/grid-18px-masked.png
+silly extracting entry templates/bootstrap/images/icon-css3.png
+silly extracting entry templates/bootstrap/images/icon-github.png
+silly extracting entry templates/bootstrap/images/icon-html5.png
+silly extracting entry templates/bootstrap/images/icon-twitter.png
+silly extracting entry templates/bootstrap/images/less-logo-large.png
+silly extracting entry templates/bootstrap/images/less-small.png
+silly extracting entry templates/bootstrap/images/responsive-illustrations.png
+silly extracting entry templates/bootstrap/img/glyphicons-halflings-white.png
+silly extracting entry templates/bootstrap/img/glyphicons-halflings.png
+silly extracting entry templates/bootstrap/js/app.js
+silly extracting entry templates/bootstrap/js/bootstrap.min.js
+silly extracting entry templates/bootstrap/layout.html.eco
+silly extracting entry templates/bootstrap/pages/index.html
+silly extracting entry templates/package.json.eco
+silly extracting entry templates/pagedown/package.json
+silly extracting entry templates/pagedown/server.js
+silly extracting entry templates/pagedown/css/app.css
+silly extracting entry templates/pagedown/css/bootstrap-responsive.min.css
+silly extracting entry templates/pagedown/css/bootstrap.min.css
+silly extracting entry templates/pagedown/ico/apple-touch-icon-114-precomposed.png
+silly extracting entry templates/pagedown/ico/apple-touch-icon-144-precomposed.png
+silly extracting entry templates/pagedown/ico/apple-touch-icon-57-precomposed.png
+silly extracting entry templates/pagedown/ico/apple-touch-icon-72-precomposed.png
+silly extracting entry templates/pagedown/ico/favicon.ico
+silly extracting entry templates/pagedown/images/apple-touch-icon-114x114.png
+silly extracting entry templates/pagedown/images/apple-touch-icon-72x72.png
+silly extracting entry templates/pagedown/images/apple-touch-icon.png
+silly extracting entry templates/pagedown/images/bam.gif
+silly extracting entry templates/pagedown/images/bam.ico
+silly extracting entry templates/pagedown/images/favicon.ico
+silly extracting entry templates/pagedown/img/glyphicons-halflings-white.png
+silly extracting entry templates/pagedown/img/glyphicons-halflings.png
+silly extracting entry templates/pagedown/img/ror-is-here.jpg
+silly extracting entry templates/pagedown/js/app.js
+silly extracting entry templates/pagedown/js/bootstrap.min.js
+silly extracting entry templates/pagedown/js/jquery.fittext.js
+silly extracting entry templates/pagedown/js/jquery.js
+silly extracting entry templates/pagedown/js/jquery.scrollTo.min.js
+silly extracting entry templates/pagedown/layout.html.eco
+silly extracting entry templates/pagedown/pages/index.coffee
+silly extracting entry templates/pagedown/robots.txt
+silly extracting entry templates/robots.txt.eco
+silly extracting entry templates/s3.json.eco
+silly extracting entry templates/server.js.eco
+silly extracting entry templates/skeleton/images/apple-touch-icon-114x114.png
+silly extracting entry templates/skeleton/images/apple-touch-icon-72x72.png
+silly extracting entry templates/skeleton/images/apple-touch-icon.png
+silly extracting entry templates/skeleton/images/bam.gif
+silly extracting entry templates/skeleton/images/bam.ico
+silly extracting entry templates/skeleton/images/favicon.ico
+silly extracting entry templates/skeleton/javascripts/tabs.js
+silly extracting entry templates/skeleton/layout.html.eco
+silly extracting entry templates/skeleton/pages/index.md
+silly extracting entry templates/skeleton/stylesheets/bam.css
+silly extracting entry templates/skeleton/stylesheets/base.css
+silly extracting entry templates/skeleton/stylesheets/github.css
+silly extracting entry templates/skeleton/stylesheets/layout.css
+silly extracting entry templates/skeleton/stylesheets/skeleton.css
+verbose caching /Users/twilson63/.npm/bam/0.5.5/package/package.json
+verbose loadDefaults bam@0.5.5
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 28195
+info shasum a31ed366300961dc542991b3f442bc8d0f649af8
+info shasum /Users/twilson63/.npm/bam/0.5.5/package.tgz
+verbose from cache /Users/twilson63/.npm/bam/0.5.5/package/package.json
+verbose chmod /Users/twilson63/.npm/bam/0.5.5/package.tgz 644
+verbose chown [ '/Users/twilson63/.npm/bam/0.5.5/package.tgz', 501, 20 ]
+silly publish { author: 
+silly publish    { name: 'Tom Wilson',
+silly publish      email: 'tom@beautifulnode.com',
+silly publish      url: 'http://www.twilson63.com' },
+silly publish   name: 'bam',
+silly publish   description: 'The Easiest Static Site Generator on the Planet!',
+silly publish   version: '0.5.5',
+silly publish   homepage: 'http://github.com/beautifulnode/bam',
+silly publish   repository: { type: 'git', url: 'git://github.com/beautifulnode/bam.git' },
+silly publish   scripts: { test: 'mocha' },
+silly publish   engines: { node: '~0.6.17' },
+silly publish   dependencies: 
+silly publish    { pkginfo: '0.2.3',
+silly publish      eco: '1.1.0-rc-3',
+silly publish      'github-flavored-markdown': '1.0.1',
+silly publish      filed: '0.0.5',
+silly publish      wrench: '1.3.6',
+silly publish      fortknox: '0.1.0',
+silly publish      flatiron: '0.1.17',
+silly publish      zeke: '~0.2.0',
+silly publish      'zeke-markdown': '*',
+silly publish      'zeke-bootstrap': '*' },
+silly publish   devDependencies: {},
+silly publish   bin: { bam: './bin/bam' },
+silly publish   optionalDependencies: {},
+silly publish   _npmUser: { name: 'jackhq', email: 'tom@jackhq.com' },
+silly publish   _id: 'bam@0.5.5',
+silly publish   _engineSupported: true,
+silly publish   _npmVersion: '1.1.21',
+silly publish   _nodeVersion: 'v0.6.17',
+silly publish   _defaultsLoaded: true,
+silly publish   dist: 
+silly publish    { shasum: 'a31ed366300961dc542991b3f442bc8d0f649af8',
+silly publish      tarball: 'http://registry.npmjs.org/bam/-/bam-0.5.5.tgz' } }
+verbose raw, before any munging bam
+verbose url resolving [ 'https://registry.npmjs.org/', './bam' ]
+verbose url resolved https://registry.npmjs.org/bam
+http PUT https://registry.npmjs.org/bam
+http 409 https://registry.npmjs.org/bam
+verbose raw, before any munging bam
+verbose url resolving [ 'https://registry.npmjs.org/', './bam' ]
+verbose url resolved https://registry.npmjs.org/bam
+http GET https://registry.npmjs.org/bam
+http 200 https://registry.npmjs.org/bam
+info Already published bam@0.5.5
+verbose uploading bin dists []
+ERR! publish fail Cannot publish over existing version.
+ERR! publish fail Bump the 'version' field, set the --force flag, or
+ERR! publish fail     npm unpublish 'bam@0.5.5'
+ERR! publish fail and try again
+ERR! 
+ERR! System Darwin 11.3.0
+ERR! command "node" "/usr/local/bin/npm" "publish"
+ERR! cwd /Users/twilson63/code/bam
+ERR! node -v v0.6.17
+ERR! npm -v 1.1.21
+ERR! code EPUBLISHCONFLICT
+ERR! message publish fail
+ERR! errno {}
+verbose exit [ 1, true ]
