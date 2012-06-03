@@ -3,7 +3,7 @@
   "name": "bam",
   "description": "The Easiest Static Site Generator on the Planet!",
   "version": "0.5.6",
-  "homepage": "http://github.com/beautifulnode/bam",
+  "homepage": "http://www.usebam.com",
   "repository": {
     "type": "git",
     "url": "git://github.com/beautifulnode/bam.git"
