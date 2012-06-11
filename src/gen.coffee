@@ -32,18 +32,23 @@ module.exports = (proj='.') ->
     # Create gen directory
     fs.mkdirSync(gen)
     # Read Pages Directory
-    pages = fs.readdirSync('./pages')
+    pages = wrench.readdirSyncRecursive('./pages')
     # for each page render to gen directory as html files
     for page in pages
-      if page.split('.')[1] is 'html'
+      page = page.replace('pages/','')
+      ext = page.split('.')[1]
+      if ext is 'html'
         body = renderHtml '/' + page.replace('.html','')
-      else if page.split('.')[1] is 'coffee'
+      else if ext is 'coffee'
         body = renderCoffee '/' + page.replace('.coffee','')
         page = page.replace '.coffee', '.html'
-      else
+      else if ext is 'md'
         body = renderMarkdown '/' + page.replace('.md','')
         page = page.replace '.md', '.html'
-      fs.writeFileSync "#{gen}/#{page}", renderTemplate(body), 'utf8'
+      else
+        fs.mkdirSync "#{gen}/#{page}"
+      if ext?
+        fs.writeFileSync "#{gen}/#{page}", renderTemplate(body), 'utf8'
     # build asset folders
     for dir in ['images', 'javascripts', 'stylesheets', 'ico', 'img', 'js', 'css']
       try

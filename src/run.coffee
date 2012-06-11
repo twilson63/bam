@@ -13,7 +13,6 @@ renderMarkdown = (name) ->
   ghm.parse(md)
 
 renderHtml = (name) ->
-  console.log name
   fs.readFileSync("./pages#{name}.html").toString()
 
 renderCoffee = (name) ->
