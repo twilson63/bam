@@ -20,7 +20,7 @@ buildFolders = (proj, cb) ->
   # Remove gen directory if exists
   checkexists "./#{proj}", (exists) -> 
     wrench.rmdirSyncRecursive("./#{proj}") if exists 
-    fs.mkdirSync directory, 0755 for directory in [
+    fs.mkdirSync directory, 0o0755 for directory in [
       "./#{proj}"
     ]
     cb()

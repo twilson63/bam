@@ -3,10 +3,10 @@ fs            = require 'fs'
 {spawn, exec} = require 'child_process'
 
 # ANSI Terminal Colors
-bold = '\033[0;1m'
-green = '\033[0;32m'
-reset = '\033[0m'
-red = '\033[0;31m'
+bold = `'\033[0;1m'`
+green = `'\033[0;32m'`
+reset = `'\033[0m'`
+red = `'\033[0;31m'`
 
 log = (message, color, explanation) ->
   console.log color + message + reset + ' ' + (explanation or '')

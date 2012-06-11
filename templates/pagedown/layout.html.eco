@@ -22,15 +22,15 @@
 
   <!-- CSS
   ================================================== -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- Favicons
   ================================================== -->
-  <link rel="shortcut icon" href="images/bam.ico">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  <link rel="shortcut icon" href="/images/bam.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
 
 </head>
 <body>
@@ -55,10 +55,10 @@
   <!-- JS
   ================================================== -->
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.scrollTo.min.js"></script>
-  <script src="js/jquery.fittext.js"></script>
-  <script src="js/app.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/jquery.scrollTo.min.js"></script>
+  <script src="/js/jquery.fittext.js"></script>
+  <script src="/js/app.js"></script>
 <!-- End Document
 ================================================== -->
 </body>

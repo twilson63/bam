@@ -13,6 +13,7 @@ renderMarkdown = (name) ->
   ghm.parse(md)
 
 renderHtml = (name) ->
+  console.log name
   fs.readFileSync("./pages#{name}.html").toString()
 
 renderCoffee = (name) ->
@@ -33,7 +34,7 @@ module.exports = (port, proj='.') ->
         filed(".#{pathname}").pipe(resp)
       else
         pathname = pathname.replace '.html', ''
-        ext = (page for page in pages when page?.split('.')[0] is pathname?.split('/')[1].split('.')[0])?[0].split('.')[1]
+        (ext = page.split('.')[1] for page, index in pages when '/' + page?.split('.')[0] is pathname)
         if ext is 'html'
           body = renderHtml pathname
         else if ext is 'coffee'
