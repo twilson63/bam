@@ -19,7 +19,10 @@
     "wrench": "*",
     "flatiron": "*",
     "jade": "*",
-    "fortknox": "0.1.0"
+    "fortknox": "0.1.0",
+    "zeke": "*",
+    "zeke-markdown": "*",
+    "zeke-bootstrap": "*"
   },
   "devDependencies": {
     "mocha": "*"

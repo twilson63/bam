@@ -6,7 +6,7 @@ fs = require 'fs'
 filed = require 'filed'
 log = console.log
 wrench = require 'wrench'
-#cc = require('./zeke')()
+cc = require('./zeke')()
 
 renderMarkdown = (name) ->
   md = fs.readFileSync("./pages#{name}.md").toString()
@@ -15,9 +15,9 @@ renderMarkdown = (name) ->
 renderHtml = (name) ->
   fs.readFileSync("./pages#{name}.html").toString()
 
-#renderCoffee = (name) ->
-#  coffee = fs.readFileSync("./pages#{name}.coffee").toString()
-#  cc.render coffee
+renderCoffee = (name) ->
+ coffee = fs.readFileSync("./pages#{name}.coffee").toString()
+ cc.render coffee
 
 renderTemplate = (body="") ->
   template = fs.readFileSync "./layout.html", "utf8"
@@ -36,8 +36,8 @@ module.exports = (port, proj='.') ->
         (ext = page.split('.')[1] for page, index in pages when '/' + page?.split('.')[0] is pathname)
         if ext is 'html'
           body = renderHtml pathname
-        # else if ext is 'coffee'
-        #   body = renderCoffee pathname
+        else if ext is 'coffee'
+          body = renderCoffee pathname
         else
           body = renderMarkdown pathname
         resp.writeHead 200, 'Content-Type: text/html'

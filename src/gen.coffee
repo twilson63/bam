@@ -3,7 +3,7 @@ eco = require 'eco'
 ghm = require 'github-flavored-markdown'
 filed = require 'filed'
 wrench = require 'wrench'
-#cc = require('./zeke')()
+cc = require('./zeke')()
 
 renderMarkdown = (proj='.', name) ->
   md = fs.readFileSync("#{proj}/pages#{name}.md").toString()
@@ -12,9 +12,9 @@ renderMarkdown = (proj='.', name) ->
 renderHtml = (name) ->
   fs.readFileSync("./pages#{name}.html").toString()
 
-# renderCoffee = (name) ->
-#   coffee = fs.readFileSync("./pages#{name}.coffee").toString()
-#   cc.render coffee
+renderCoffee = (name) ->
+  coffee = fs.readFileSync("./pages#{name}.coffee").toString()
+  cc.render coffee
 
 renderTemplate = (proj='.', body="") ->
   template = fs.readFileSync "#{proj}/layout.html", "utf8"
@@ -40,9 +40,9 @@ module.exports = (proj='.', cb) ->
       ext = page.split('.')[1]
       if ext is 'html'
         body = renderHtml '/' + page.replace('.html','')
-      # else if ext is 'coffee'
-      #   body = renderCoffee '/' + page.replace('.coffee','')
-      #   page = page.replace '.coffee', '.html'
+      else if ext is 'coffee'
+        body = renderCoffee '/' + page.replace('.coffee','')
+        page = page.replace '.coffee', '.html'
       else if ext is 'md'
         body = renderMarkdown proj, '/' + page.replace('.md','')
         page = page.replace '.md', '.html'
