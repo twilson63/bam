@@ -1,53 +1,27 @@
 http = require 'http'
 url = require 'url'
-eco = require 'eco'
-ghm = require 'github-flavored-markdown'
 fs = require 'fs'
 filed = require 'filed'
 log = console.log
-wrench = require 'wrench'
-cc = require('./zeke')()
-
-renderMarkdown = (name) ->
-  md = fs.readFileSync("./pages#{name}.md").toString()
-  ghm.parse(md)
-
-renderHtml = (name) ->
-  fs.readFileSync("./pages#{name}.html").toString()
-
-renderCoffee = (name) ->
- coffee = fs.readFileSync("./pages#{name}.coffee").toString()
- cc.render coffee
-
-renderTemplate = (body="") ->
-  template = fs.readFileSync "./layout.html", "utf8"
-  eco.render(template, body: body)
+Page = require './page'
 
 module.exports = (port, proj='.') ->
   server = http.createServer (req, resp) ->
-    pages = wrench.readdirSyncRecursive('pages')
     pathname = url.parse(req.url).pathname
-    pathname = '/index.html' if pathname == '/'
+    pathname = '/index.html' if pathname is '/'
+
     try
-      if pathname.match /^\/(stylesheets|images|javascripts|css|img|js)/
+      if /^\/(stylesheets|images|javascripts|css|img|js)/.test(pathname)
         filed(".#{pathname}").pipe(resp)
       else
         pathname = pathname.replace '.html', ''
-        (ext = page.split('.')[1] for page, index in pages when '/' + page?.split('.')[0] is pathname)
-        if ext is 'html'
-          body = renderHtml pathname
-        else if ext is 'coffee'
-          body = renderCoffee pathname
-        else
-          body = renderMarkdown pathname
         resp.writeHead 200, 'Content-Type: text/html'
-        resp.end renderTemplate(body)
+        resp.end (new Page(pathname)).render()
     catch err
-      console.log "Unable to locate file #{pathname}"
+      log "Unable to locate file #{pathname}"
       filed('./404.html').pipe(resp)
-  
+
   try
-    server.listen port or 3000, ->
-      console.log "Server running on port #{port or 3000}" 
+    server.listen port or 3000, -> log "Server running on port #{port or 3000}" 
   catch err
-    console.log 'Not able to detect BAM application'
+    log 'Not able to detect BAM application'
