@@ -4,17 +4,17 @@ cc = require('./zeke')()
 wrench = require 'wrench'
 eco = require 'eco'
 
-pages = wrench.readdirSyncRecursive('pages')
-
 renderTemplate = (proj='.', body="") ->
   template = fs.readFileSync "#{proj}/layout.html", "utf8"
   eco.render(template, body: body)
 
 class Page
   constructor: (@pathname='') ->
+    @pages = wrench.readdirSyncRecursive('pages')
+    
     # find first ext from pages folder
     unless @pathname is ''
-      (@ext = page.split('.')[1] for page, index in pages when '/' + page?.split('.')[0] is pathname)
+      (@ext = page.split('.')[1] for page, index in @pages when '/' + page?.split('.')[0] is pathname)
 
   markdown: -> ghm.parse fs.readFileSync("./pages#{@pathname}.md").toString()
   html: -> fs.readFileSync("./pages#{@pathname}.html").toString()
@@ -38,8 +38,8 @@ class Page
   # generate html for all pages
   all: (dest, proj) ->
     @proj = proj
-    console.log pages
-    for page in pages
+    console.log @pages
+    for page in @pages
       [@pathname, @ext] = "/#{page}".split('.')
       body = if @ext? then do @render else 'DIR'
       @build body, page, dest
