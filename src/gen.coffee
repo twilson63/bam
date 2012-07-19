@@ -17,8 +17,11 @@ module.exports = (proj='.', cb) ->
     wrench.rmdirSyncRecursive(gen) if exists 
     # Create gen directory
     fs.mkdirSync(gen) 
+    # copy pages
     (new Page()).all gen, proj
+    # copy assets
     assets(proj, gen)
+    # copy misc
     misc(proj,gen)
 
     console.log 'Successfully Generated Static Site in the gen folder...'

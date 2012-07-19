@@ -15,7 +15,7 @@ module.exports = (location='s3') ->
     # copy files from gen to bucket
     for f in files
       destFile = f.replace('gen', '')
-      srcFile = './' + f
+      srcFile = './gen/' + f
       console.log 'Uploading... ' + destFile 
       
       client.putFile srcFile, destFile, (err, resp) =>
