@@ -23,8 +23,7 @@
     "zeke": "*",
     "zeke-markdown": "*",
     "zeke-bootstrap": "*",
-    "zeke-bam": "*",
-    "zeke-request": "*"
+    "zeke-bam": "*"
   },
   "devDependencies": {
     "mocha": "*"
