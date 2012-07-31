@@ -33,7 +33,7 @@ class Page
       fs.mkdirSync "#{gen}/#{name}"
     else
       fullName = [name, 'html'].join('.')
-      fs.writeFileSync "#{gen}/#{fullName}", renderTemplate(@proj, body), 'utf8'
+      fs.writeFileSync "#{gen}/#{fullName}", body, 'utf8'
   
   # generate html for all pages
   all: (dest, proj) ->
