@@ -2,7 +2,7 @@
   "author": "Tom Wilson <tom@beautifulnode.com> (http://www.twilson63.com)",
   "name": "bam",
   "description": "The Easiest Static Site Generator on the Planet!",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "homepage": "http://www.usebam.com",
   "repository": {
     "type": "git",
@@ -21,9 +21,7 @@
     "jade": "*",
     "fortknox": "0.1.0",
     "zeke": "*",
-    "zeke-markdown": "*",
-    "zeke-bootstrap": "*",
-    "zeke-bam": "*"
+    "zeke-markdown": "*"
   },
   "devDependencies": {
     "mocha": "*"

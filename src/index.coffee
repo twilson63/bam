@@ -11,6 +11,7 @@ app = flatiron.app
 
 app.version = exports.version
 
+# setup flatiron cli plugin
 app.use flatiron.plugins.cli,
   dir: __dirname
   usage: [
@@ -23,6 +24,9 @@ app.use flatiron.plugins.cli,
     "# run in dev mode"
     "bam run"
     ""
+    # "# create new page"
+    # "bam page [mypage].(html|md|coffee)"
+    # ""
     "# generate site"
     "bam gen"
     ""
@@ -34,13 +38,18 @@ app.use flatiron.plugins.cli,
   ]
   version: true
 
+# support verson command
 app.cmd 'version', ->
   console.log 'BAM v' + app.version
 
+# bam new [site] [template]
 app.cmd 'new', cmdNew
+# bam run 
 app.cmd 'run', cmdRun
+# bam gen
 app.cmd 'gen', cmdGen
+# bam serve
 app.cmd 'serve', cmdServe
-app.cmd 'deploy', cmdDeploy
 
+# app start
 app.start()
