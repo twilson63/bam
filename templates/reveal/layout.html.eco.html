@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title><%= @title %></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  
+  <!-- CSS
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+
+  <link rel="stylesheet" href="css/zenburn.css">
+
+</head>
+<body>
+  <!-- Primary Page Layout
+  ================================================== -->
+  <%%- @body %>
+  <!-- JS
+  ================================================== -->
+  <script src="js/head.min.js"></script>
+
+  <script>
+    // Scripts that should be loaded before initializing
+    var scripts = [];
+
+    // If the browser doesn't support classList, load a polyfill
+    if( !document.body.classList ) {
+      scripts.push( 'js/classList.js' );
+    }
+
+    // Load markdown parser if there are slides defined using markdown
+    if( document.querySelector( '[data-markdown]' ) ) {
+      scripts.push( 'js/showdown.js' );
+      scripts.push( 'js/data-markdown.js' );
+    }
+
+    scripts.push( 'js/reveal.js' );
+
+    // Load the scripts and, when completed, initialize reveal.js
+    head.js.apply( null, scripts.concat([function() {
+
+      // Fires when a slide with data-state=customevent is activated
+      Reveal.addEventListener( 'customevent', function() {
+        console.log( '"customevent" has fired' );
+      } );
+
+      // Fires each time a new slide is activated
+      Reveal.addEventListener( 'slidechanged', function( event ) {
+        // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+      } );
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        
+        theme: Reveal.getQueryHash().theme || 'default', // default/neon/beige
+        transition: Reveal.getQueryHash().transition || 'default' // default/cube/page/concave/linear(2d)
+      });
+
+    }]));
+    
+    // Load highlight.js for syntax highlighting of code samples
+    head.js( 'js/highlight.js', function() { 
+      hljs.initHighlightingOnLoad(); 
+    } );
+  </script>
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
