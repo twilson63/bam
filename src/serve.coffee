@@ -5,7 +5,6 @@ log = console.log
 
 module.exports = (proj='.') ->
   server = http.createServer (req, resp) ->
-    # req.pipe(filed("#{proj}/gen")).pipe(resp)
     pathname = url.parse(req.url).pathname
     pathname = '/index.html' if pathname == '/'
     filed("#{proj}/gen#{pathname}").pipe(resp)

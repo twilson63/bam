@@ -1,10 +1,3 @@
-# Commands
-cmdNew = require './new'
-cmdRun = require './run'
-cmdGen = require './gen'
-cmdServe = require './serve'
-cmdDeploy = require './deploy'
-
 flatiron = require 'flatiron'
 require('pkginfo')(module)
 app = flatiron.app
@@ -24,17 +17,11 @@ app.use flatiron.plugins.cli,
     "# run in dev mode"
     "bam run"
     ""
-    # "# create new page"
-    # "bam page [mypage].(html|md|coffee)"
-    # ""
     "# generate site"
     "bam gen"
     ""
     "# test gen site"
     "bam serve"
-    ""
-    "# deploy gen site to s3"
-    "bam deploy s3"
   ]
   version: true
 
@@ -43,13 +30,13 @@ app.cmd 'version', ->
   console.log 'BAM v' + app.version
 
 # bam new [site] [template]
-app.cmd 'new', cmdNew
+app.cmd 'new', require './new'
 # bam run 
-app.cmd 'run', cmdRun
+app.cmd 'run', require './run'
 # bam gen
-app.cmd 'gen', cmdGen
+app.cmd 'gen', require './gen'
 # bam serve
-app.cmd 'serve', cmdServe
+app.cmd 'serve', require './serve'
 
 # app start
 app.start()

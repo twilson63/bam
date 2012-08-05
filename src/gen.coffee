@@ -1,9 +1,9 @@
 fs = require 'fs'
 wrench = require 'wrench'
 
-assets = require './assets'
-misc = require './misc'
-Page = require './page'
+assets = require './util/assets'
+misc = require './util/misc'
+Page = require './util/page'
 
 module.exports = (proj='.', cb) ->
   gen = "#{proj}/gen"

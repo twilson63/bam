@@ -3,7 +3,7 @@ url = require 'url'
 fs = require 'fs'
 filed = require 'filed'
 log = console.log
-Page = require './page'
+Page = require './util/page'
 
 module.exports = (port, proj='.') ->
   server = http.createServer (req, resp) ->
