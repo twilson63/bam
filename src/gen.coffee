@@ -5,15 +5,11 @@ assets = require './assets'
 misc = require './misc'
 Page = require './page'
 
-checkexists = (name, cb) ->
-  fs.stat name, (err, stat) ->
-    cb if err? then false else true
-
 module.exports = (proj='.', cb) ->
   gen = "#{proj}/gen"
 
   # Remove gen directory if exists
-  checkexists gen, (exists) -> 
+  fs.exists gen, (exists) => 
     wrench.rmdirSyncRecursive(gen) if exists 
     # Create gen directory
     fs.mkdirSync(gen) 
