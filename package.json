@@ -20,7 +20,8 @@
     "flatiron": "*",
     "jade": "*",
     "zeke": "*",
-    "zeke-markdown": "*"
+    "zeke-markdown": "*",
+    "w3": "*"
   },
   "devDependencies": {
     "mocha": "*"
