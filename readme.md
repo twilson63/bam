@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/beautifulnode/bam.png)](http://travis-ci.org/beautifulnode/bam)
 # BAM
 
 ![bam](http://bam.jpg.to)
