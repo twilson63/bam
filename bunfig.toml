@@ -1,0 +1,48 @@
+# Bun Configuration for BAM Static Site Generator
+
+# Runtime settings
+[run]
+# Enable source maps in development
+"sourcemap" = "inline"
+
+# Test configuration
+[test]
+# Test runner settings
+preload = ["./test/setup.js"]
+coverage = true
+coverageReporter = ["text", "lcov"]
+
+# Install configuration
+[install]
+# Package manager settings
+lockfile = "bun.lockb"
+auto = "fallback"
+
+# Peer dependencies handling
+peer = true
+
+# Cache settings
+cache = "$HOME/.bun/install/cache"
+
+# Registry
+registry = "https://registry.npmjs.org"
+
+# Development dependencies
+[install.scopes]
+"@types" = { version = "latest" }
+
+# Bundle configuration
+[bundle]
+# External packages (not bundled)
+external = [
+  "ejs",
+  "marked", 
+  "commander",
+  "fs-extra"
+]
+
+# Macro configuration for compile-time optimizations
+[macro]
+# Define environment-specific macros
+"process.env.BAM_VERSION" = "1.0.0"
+"process.env.BAM_RUNTIME" = "bun"

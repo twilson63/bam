@@ -1,0 +1,56 @@
+{
+  "name": "bam",
+  "version": "1.0.0",
+  "description": "The Easiest Static Site Generator on the Planet! (Bun Edition)",
+  "type": "module",
+  "main": "./src-es6/index.js",
+  "bin": {
+    "bam": "./bin/bam-es6"
+  },
+  "scripts": {
+    "test": "bun test",
+    "build": "bun bun.build.js build",
+    "build:compile": "bun bun.build.js compile",
+    "build:dev": "bun bun.build.js dev",
+    "migrate:test": "bun run migration/test-deps.js",
+    "migrate:coffee": "coffee -c -o lib-new src",
+    "dev": "bun run --watch src-es6/index.js",
+    "start": "bun run src-es6/index.js"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "ejs": "^3.1.9",
+    "marked": "^9.0.0",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/ejs": "^3.1.0",
+    "@types/fs-extra": "^11.0.0"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/beautifulnode/bam.git"
+  },
+  "keywords": [
+    "static",
+    "site",
+    "generator",
+    "bun",
+    "fast",
+    "modern",
+    "es6"
+  ],
+  "author": "Tom Wilson <tom@beautifulnode.com> (http://www.twilson63.com)",
+  "contributors": [
+    "Bun Migration Team"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.usebam.com",
+  "bugs": {
+    "url": "https://github.com/beautifulnode/bam/issues"
+  }
+}

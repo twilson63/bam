@@ -1,0 +1,58 @@
+{
+  "name": "bam-es6",
+  "description": "The Easiest Static Site Generator on the Planet! - Modernized ES6 Version",
+  "version": "1.0.0",
+  "author": "Tom Wilson <tom@beautifulnode.com> (http://www.twilson63.com)",
+  "homepage": "http://www.usebam.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/beautifulnode/bam.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "main": "src-es6/index.js",
+  "bin": {
+    "bam-es6": "./src-es6/index.js"
+  },
+  "scripts": {
+    "test": "mocha test-es6/**/*.js --timeout 15000",
+    "test:watch": "mocha test-es6/**/*.js --watch --timeout 15000",
+    "start": "node src-es6/index.js",
+    "dev": "nodemon src-es6/index.js",
+    "lint": "eslint src-es6/**/*.js",
+    "format": "prettier --write src-es6/**/*.js test-es6/**/*.js"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "ejs": "^3.1.9",
+    "marked": "^12.0.0",
+    "fs-extra": "^11.2.0",
+    "mime-types": "^2.1.35"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10",
+    "eslint": "^8.55.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.4.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^3.1.0",
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "static",
+    "site",
+    "generator",
+    "cli",
+    "es6",
+    "modern",
+    "javascript",
+    "template",
+    "markdown",
+    "html"
+  ],
+  "license": "MIT"
+}
