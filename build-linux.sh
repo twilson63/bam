@@ -34,25 +34,25 @@ ARCH=$(uname -m)
 case "$ARCH" in
     x86_64)
         echo "🚀 Building for x64..."
-        bun build cli.js --compile --target=bun-linux-x64 --outfile=dist/bam-linux-x64
+        bun build cli.js --compile --target=linux-x64 --outfile=dist/bam-linux-x64
         
         echo "🔨 Cross-compiling for ARM64..."
-        bun build cli.js --compile --target=bun-linux-arm64 --outfile=dist/bam-linux-arm64 || {
+        bun build cli.js --compile --target=linux-arm64 --outfile=dist/bam-linux-arm64 || {
             echo "⚠️  Cross-compilation to ARM64 failed, skipping..."
         }
         ;;
     aarch64|arm64)
         echo "🚀 Building for ARM64..."
-        bun build cli.js --compile --target=bun-linux-arm64 --outfile=dist/bam-linux-arm64
+        bun build cli.js --compile --target=linux-arm64 --outfile=dist/bam-linux-arm64
         
         echo "🔨 Cross-compiling for x64..."
-        bun build cli.js --compile --target=bun-linux-x64 --outfile=dist/bam-linux-x64 || {
+        bun build cli.js --compile --target=linux-x64 --outfile=dist/bam-linux-x64 || {
             echo "⚠️  Cross-compilation to x64 failed, skipping..."
         }
         ;;
     *)
         echo "⚠️  Unknown architecture $ARCH, attempting x64 build..."
-        bun build cli.js --compile --target=bun-linux-x64 --outfile=dist/bam-linux-x64
+        bun build cli.js --compile --target=linux-x64 --outfile=dist/bam-linux-x64
         ;;
 esac
 

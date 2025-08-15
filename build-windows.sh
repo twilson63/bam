@@ -28,7 +28,7 @@ rm -rf dist
 
 # Build for Windows
 echo "🔨 Building for Windows x64..."
-bun build cli.js --compile --target=bun-windows-x64 --outfile=dist/bam-windows-x64.exe
+bun build cli.js --compile --target=windows-x64 --outfile=dist/bam-windows-x64.exe
 
 # Verify the build
 if [[ -f "dist/bam-windows-x64.exe" ]]; then

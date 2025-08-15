@@ -15,27 +15,27 @@ const BUILD_CONFIG = {
   name: "bam",
   platforms: [
     {
-      target: "bun-darwin-x64",
+      target: "darwin-x64",
       suffix: "-macos-x64",
       description: "macOS Intel"
     },
     {
-      target: "bun-darwin-arm64", 
+      target: "darwin-arm64", 
       suffix: "-macos-arm64",
       description: "macOS Apple Silicon"
     },
     {
-      target: "bun-linux-x64",
+      target: "linux-x64",
       suffix: "-linux-x64",
       description: "Linux x64"
     },
     {
-      target: "bun-linux-arm64",
+      target: "linux-arm64",
       suffix: "-linux-arm64",
       description: "Linux ARM64"
     },
     {
-      target: "bun-windows-x64",
+      target: "windows-x64",
       suffix: "-windows-x64.exe",
       description: "Windows x64"
     }

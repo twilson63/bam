@@ -49,7 +49,7 @@ build_platform() {
     
     if bun build ./cli.js \
         --compile \
-        --target="bun-$PLATFORM-$ARCH" \
+        --target="$PLATFORM-$ARCH" \
         --outfile="$BUILD_DIR/$OUTPUT" \
         --minify; then
         

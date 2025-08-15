@@ -33,18 +33,18 @@ echo "🔨 Building for macOS..."
 ARCH=$(uname -m)
 if [[ "$ARCH" == "arm64" ]]; then
     echo "🚀 Building for Apple Silicon (ARM64)..."
-    bun build cli.js --compile --target=bun-darwin-arm64 --outfile=dist/bam-macos-arm64
+    bun build cli.js --compile --target=darwin-arm64 --outfile=dist/bam-macos-arm64
     
     echo "🔨 Cross-compiling for Intel (x64)..."
-    bun build cli.js --compile --target=bun-darwin-x64 --outfile=dist/bam-macos-x64 || {
+    bun build cli.js --compile --target=darwin-x64 --outfile=dist/bam-macos-x64 || {
         echo "⚠️  Cross-compilation to x64 failed, skipping..."
     }
 else
     echo "🚀 Building for Intel (x64)..."
-    bun build cli.js --compile --target=bun-darwin-x64 --outfile=dist/bam-macos-x64
+    bun build cli.js --compile --target=darwin-x64 --outfile=dist/bam-macos-x64
     
     echo "🔨 Cross-compiling for Apple Silicon (ARM64)..."
-    bun build cli.js --compile --target=bun-darwin-arm64 --outfile=dist/bam-macos-arm64 || {
+    bun build cli.js --compile --target=darwin-arm64 --outfile=dist/bam-macos-arm64 || {
         echo "⚠️  Cross-compilation to ARM64 failed, skipping..."
     }
 fi
