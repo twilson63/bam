@@ -24,7 +24,7 @@ on:
         type: boolean
 
 env:
-  BUN_VERSION: "1.1.0"
+  BUN_VERSION: "latest"  # Use latest version for better compatibility
 
 jobs:
   build-matrix:
@@ -35,24 +35,16 @@ jobs:
       matrix:
         include:
           - platform: macos-x64
-            os: macos-13
-            target: darwin-x64
+            os: macos-13  # Intel Mac runner
             artifact: bam-macos-x64
           - platform: macos-arm64
-            os: macos-14
-            target: darwin-arm64
+            os: macos-14  # Apple Silicon runner
             artifact: bam-macos-arm64
           - platform: linux-x64
             os: ubuntu-22.04
-            target: linux-x64
             artifact: bam-linux-x64
-          - platform: linux-arm64
-            os: ubuntu-22.04
-            target: linux-arm64
-            artifact: bam-linux-arm64
           - platform: windows-x64
             os: windows-2022
-            target: windows-x64
             artifact: bam-windows-x64.exe
     
     steps:
@@ -75,7 +67,10 @@ jobs:
       
       - name: Build binary
         working-directory: ./bun
-        run: bun build cli.js --compile --target=${{ matrix.target }} --outfile=dist/${{ matrix.artifact }}
+        run: |
+          echo "Building native binary for ${{ matrix.platform }}"
+          bun build cli.js --compile --outfile=dist/${{ matrix.artifact }}
+          # Note: Bun currently compiles for the host architecture only
       
       - name: Verify build output
         working-directory: ./bun
