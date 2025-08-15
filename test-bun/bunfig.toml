@@ -1,0 +1,18 @@
+[test]
+# Bun test configuration for BAM
+timeout = 30000
+bail = false
+preload = ["./test-bun/setup.js"]
+
+[test.coverage]
+enabled = true
+threshold = 80
+exclude = [
+  "test-bun/**",
+  "benchmarks/**",
+  "**/*.test.js",
+  "**/node_modules/**"
+]
+
+[test.mock]
+enabled = true

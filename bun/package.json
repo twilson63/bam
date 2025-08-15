@@ -1,0 +1,73 @@
+{
+  "name": "@bam/bun-cli",
+  "version": "0.9.2-bun",
+  "description": "BAM Static Site Generator - Bun-optimized version with native performance",
+  "type": "module",
+  "main": "cli.js",
+  "bin": {
+    "bam": "./cli.js"
+  },
+  "scripts": {
+    "build": "bun run build.js",
+    "build:dev": "bun run build.js --dev",
+    "dev": "bun run cli.js",
+    "test": "bun test",
+    "clean": "rm -rf dist",
+    "install:global": "bun link"
+  },
+  "keywords": [
+    "bam",
+    "static-site-generator",
+    "bun",
+    "cli",
+    "build-tool",
+    "web-development",
+    "static-site",
+    "generator",
+    "performance"
+  ],
+  "author": "Tom Wilson <tom@beautifulnode.com> (http://www.twilson63.com)",
+  "contributors": [
+    "BAM Bun Optimization Team"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.usebam.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/beautifulnode/bam.git",
+    "directory": "bun"
+  },
+  "bugs": {
+    "url": "https://github.com/beautifulnode/bam/issues"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "dependencies": {
+    "eco": "^1.1.0-rc-3"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "files": [
+    "cli.js",
+    "commands/",
+    "utils/",
+    "build.js",
+    "README.md"
+  ],
+  "preferredPackageManager": "bun",
+  "bundledDependencies": [],
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

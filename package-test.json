@@ -1,0 +1,131 @@
+{
+  "name": "bam-test-suite",
+  "version": "1.0.0",
+  "description": "Comprehensive test suite for BAM static site generator",
+  "type": "module",
+  "scripts": {
+    "test": "npm run test:es6",
+    "test:all": "node run-all-tests.js",
+    "test:es6": "mocha test-es6/**/*.test.js --timeout 30000 --require test-es6/setup.js",
+    "test:es6:watch": "mocha test-es6/**/*.test.js --watch --timeout 30000 --require test-es6/setup.js",
+    "test:es6:unit": "mocha test-es6/unit/*.test.js --timeout 15000 --require test-es6/setup.js",
+    "test:es6:integration": "mocha test-es6/integration/*.test.js --timeout 30000 --require test-es6/setup.js",
+    "test:es6:e2e": "mocha test-es6/e2e/*.test.js --timeout 60000 --require test-es6/setup.js",
+    "test:bun": "bun test test-bun/",
+    "test:bun:unit": "bun test test-bun/unit/",
+    "test:bun:integration": "bun test test-bun/integration/",
+    "test:bun:e2e": "bun test test-bun/e2e/",
+    "test:bun:features": "bun test test-bun/bun-features.test.js",
+    "test:bun:cross-platform": "bun test test-bun/cross-platform.test.js",
+    "test:legacy": "mocha test/*.coffee --timeout 30000",
+    "test:benchmark": "node benchmarks/runner.js",
+    "test:coverage:es6": "c8 npm run test:es6",
+    "test:coverage:bun": "bun test --coverage test-bun/",
+    "test:performance": "npm run test:benchmark && npm run test:bun:features",
+    "test:ci": "npm run test:all",
+    "benchmark": "node benchmarks/runner.js",
+    "benchmark:quick": "node benchmarks/runner.js --quick",
+    "clean:test": "rm -rf tmp-test* test-results coverage .nyc_output",
+    "setup:test": "npm run clean:test && mkdir -p test-results"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "ejs": "^3.1.9",
+    "marked": "^12.0.0",
+    "fs-extra": "^11.2.0",
+    "mime-types": "^2.1.35"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10",
+    "c8": "^8.0.1",
+    "sinon": "^17.0.1",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0",
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "bun": ">=1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/beautifulnode/bam.git"
+  },
+  "keywords": [
+    "static",
+    "site",
+    "generator",
+    "test",
+    "testing",
+    "bun",
+    "es6",
+    "nodejs",
+    "performance",
+    "benchmark"
+  ],
+  "author": "Tom Wilson <tom@beautifulnode.com> (http://www.twilson63.com)",
+  "contributors": [
+    "Test Suite Development Team"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.usebam.com",
+  "bugs": {
+    "url": "https://github.com/beautifulnode/bam/issues"
+  },
+  "testConfig": {
+    "timeout": 30000,
+    "retries": 2,
+    "parallel": true,
+    "coverage": {
+      "threshold": 80,
+      "exclude": [
+        "test-*/**",
+        "benchmarks/**",
+        "**/*.test.js",
+        "**/fixtures/**"
+      ]
+    },
+    "environments": [
+      "node",
+      "bun"
+    ],
+    "platforms": [
+      "linux",
+      "darwin",
+      "win32"
+    ]
+  },
+  "c8": {
+    "include": [
+      "src-es6/**/*.js",
+      "bun/**/*.js",
+      "lib/**/*.js"
+    ],
+    "exclude": [
+      "test-*/**",
+      "benchmarks/**",
+      "**/*.test.js",
+      "**/fixtures/**",
+      "**/node_modules/**"
+    ],
+    "reporter": [
+      "text",
+      "html",
+      "json"
+    ],
+    "check-coverage": true,
+    "lines": 80,
+    "functions": 80,
+    "branches": 80,
+    "statements": 80
+  },
+  "mocha": {
+    "require": [
+      "test-es6/setup.js"
+    ],
+    "timeout": 30000,
+    "recursive": true,
+    "spec": "test-es6/**/*.test.js"
+  }
+}
