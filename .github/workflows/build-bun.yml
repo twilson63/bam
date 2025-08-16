@@ -7,6 +7,8 @@ on:
       - 'bun/**'
       - 'build-*.sh'
       - '.github/workflows/build-bun.yml'
+    tags:
+      - 'v*'  # Trigger on version tags
   pull_request:
     branches: [ master, main ]
     paths:
@@ -22,6 +24,11 @@ on:
         required: false
         default: 'false'
         type: boolean
+      release_version:
+        description: 'Release version (e.g., v2.0.0)'
+        required: false
+        default: ''
+        type: string
 
 env:
   BUN_VERSION: "latest"  # Use latest version for better compatibility
@@ -209,7 +216,10 @@ jobs:
 
   release:
     name: Create Release
-    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true')
+    if: |
+      github.event_name == 'release' || 
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.create_release == 'true') ||
+      (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v'))
     needs: [build-matrix, test-builds, create-packages]
     runs-on: ubuntu-22.04
     permissions:
@@ -283,15 +293,16 @@ jobs:
           ls -la release-assets/
       
       - name: Create Release
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v0.9.2-bun
-          name: BAM v0.9.2-bun (Bun-optimized)
+          tag_name: ${{ github.event.inputs.release_version || github.ref_name }}
+          name: BAM ${{ github.event.inputs.release_version || github.ref_name }}
           body_path: release-assets/RELEASE_NOTES.md
           draft: false
           prerelease: false
           files: release-assets/*
+          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       

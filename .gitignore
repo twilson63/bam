@@ -1,3 +1,14 @@
 node_modules
 .DS_Store
 npm-debug.log
+gen
+$HOME
+.bun
+bun.lockb
+dist
+*.log
+.env
+.vscode
+.idea
+*.bak
+*.swp
