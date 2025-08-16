@@ -285,10 +285,20 @@ get_latest_version() {
     
     case "$DOWNLOAD_TOOL" in
         curl)
-            version_json=$(curl -fsSL "$api_url" 2>/dev/null) || fatal "Failed to fetch version information"
+            version_json=$(curl -fsSL "$api_url" 2>/dev/null) || {
+                log_warning "No releases found on GitHub"
+                log "Falling back to npm installation..."
+                install_via_npm
+                exit 0
+            }
             ;;
         wget)
-            version_json=$(wget -qO- "$api_url" 2>/dev/null) || fatal "Failed to fetch version information"
+            version_json=$(wget -qO- "$api_url" 2>/dev/null) || {
+                log_warning "No releases found on GitHub"
+                log "Falling back to npm installation..."
+                install_via_npm
+                exit 0
+            }
             ;;
         fetch)
             version_json=$(fetch -qo- "$api_url" 2>/dev/null) || fatal "Failed to fetch version information"
@@ -337,6 +347,29 @@ determine_install_dir() {
     
     if [ "$DRY_RUN" = false ]; then
         mkdir -p "$INSTALL_DIR" || fatal "Failed to create install directory: ${INSTALL_DIR}"
+    fi
+}
+
+# Install via npm as fallback
+install_via_npm() {
+    log "Checking for npm..."
+    
+    if ! command_exists npm; then
+        fatal "npm is not installed. Please install Node.js and npm first: https://nodejs.org"
+    fi
+    
+    log "Installing BAM via npm..."
+    
+    if npm install -g bam; then
+        log_success "BAM installed successfully via npm!"
+        log ""
+        log "Get started with:"
+        log "  ${CYAN}bam new mysite${RESET}"
+        log "  ${CYAN}cd mysite${RESET}"
+        log "  ${CYAN}bam run${RESET}"
+        exit 0
+    else
+        fatal "npm installation failed"
     fi
 }
 
